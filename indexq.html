@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beautiful Surprise</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(-45deg,#ff4e8a,#8e44ff,#00c6ff,#00e676);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+width:90%;
+max-width:450px;
+padding:35px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(18px);
+border-radius:25px;
+text-align:center;
+color:#fff;
+box-shadow:0 15px 35px rgba(0,0,0,.3);
+animation:show 1s;
+}
+
+@keyframes show{
+from{transform:translateY(60px);opacity:0;}
+to{transform:translateY(0);opacity:1;}
+}
+
+h1{
+font-size:38px;
+margin-bottom:15px;
+text-shadow:0 0 10px #fff;
+}
+
+p{
+line-height:30px;
+font-size:17px;
+margin-bottom:25px;
+}
+
+button{
+padding:14px 35px;
+border:none;
+border-radius:50px;
+background:#fff;
+color:#ff4e8a;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+#text{
+display:none;
+margin-top:25px;
+font-size:22px;
+font-weight:bold;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.heart{
+position:fixed;
+font-size:22px;
+animation:fly 4s linear forwards;
+}
+
+@keyframes fly{
+to{
+transform:translateY(-110vh) rotate(720deg);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>✨ A Beautiful Moment ✨</h1>
+
+<p>
+Some people don't need to try to be special...
+their kindness, smile, and positive heart already make them unforgettable. 💖
+<br><br>
+May every new day bring happiness, success, beautiful memories, and endless smiles into your life. 🌸
+</p>
+
+<button onclick="magic()">
+Open Surprise 🎁
+</button>
+
+<div id="text">
+🌸 Keep Smiling... The World Looks Better Because of You. 💖
+</div>
+
+</div>
+
+<script>
+
+function magic(){
+
+document.getElementById("text").style.display="block";
+
+for(let i=0;i<30;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=["💖","💕","💗","✨"][Math.floor(Math.random()*4)];
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.top="100vh";
+
+h.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),4000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
